@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Header from './Components/Header';
+import { BrowserRouter as Router, Route,Switch } from 'react-router-dom' 
+import Timer from './Components/Timer';
+import Nav from './Components/Nav';
+import { Title } from './Components/Header/header.styles';
+import react,{useState} from 'react'
 function App() {
+
+  Timer.defaultProps = {
+        
+    mili: 0,
+    sec: 0,
+    min: 0,
+    hours: 0,
+} 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      
+   
+      <Header/>
+      
+        
+        </main>         
   );
 }
 
