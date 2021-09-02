@@ -57,7 +57,7 @@ const Stopwatch = () => {
     }
    
     return (
-       <section>
+       
             <Center>
                 <h1>Stopwatch</h1>
                 <Div> 
@@ -81,7 +81,7 @@ const Stopwatch = () => {
                     
             </Center>
        
-        </section>        
+              
     )   
 }
 

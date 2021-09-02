@@ -6,3 +6,8 @@ border: none;
 
 color: red;
 `;
+
+export const Div = styled.div`
+text-align: center;
+
+`

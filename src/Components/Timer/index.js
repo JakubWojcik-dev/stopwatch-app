@@ -1,47 +1,51 @@
 import React, {useState,useEffect} from 'react'
 import { Input } from './timer.styles'
+import { Div } from './timer.styles'
 const Timer = () => {
-
+    const [name,setName] = useState('')
     const [empty,setEmpty] = useState(true)
     const [open,SetOpen] = useState(false)
     const [state, setState] = useState([])  
 
    const exit = () => {
        SetOpen(!open)
+       
    }
     
     const addTimer = () =>{
-        console.log("test")
+      
         SetOpen(!open)
-        setState([...state,13])
+        setState([...state,4])
+        
         console.log(state)
     }
        if(empty && open){
         return (
-           <div>
+           <Div>
                <h3>dodaj Timer</h3>
                <button onClick={exit}>{state}</button>
-               <ul>
-               {state.map( (item) => {
-                  <li key={item.id}>{state.values}</li>
-               })}
-            </ul>
-           
-           </div>
+               {state.map( (item,index) => {
+                
+              return <h5 key={index}>{item}</h5>
+            })}
+           </Div>
            
         )
        }
         else if(empty){
             return (
-                <button onClick={addTimer}>Dodaj timer</button>
+                <Div>
+                <h1>Brak Timerów!!! Kliknij poniższy przycisk żeby dodać timer</h1>
+                <button onClick={addTimer}>Nowy Timer</button>
+            </Div>
             )
        }
        else{
         return (
-            <div>
-                <h1>Brak Timerów!!!</h1>
-                <button onClick={addTimer}>Dodaj timer</button>
-            </div>
+            
+            <button onClick={addTimer}>Dodaj timer</button>
+           
+            
         )
        }
     
