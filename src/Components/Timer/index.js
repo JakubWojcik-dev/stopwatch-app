@@ -1,51 +1,50 @@
 import React, {useState,useEffect} from 'react'
-import { Input } from './timer.styles'
+import { Input, NewTimer, HideDiv,ReleaseOnClick,MainDiv, Button } from './timer.styles'
 import { Div } from './timer.styles'
+import Window from '../TimerWindow'
 const Timer = () => {
     const [name,setName] = useState('')
-    const [empty,setEmpty] = useState(true)
+    const [empty,setEmpty] = useState(false)
     const [open,SetOpen] = useState(false)
     const [state, setState] = useState([])  
 
    const exit = () => {
        SetOpen(!open)
+       state.length === 0 ? setEmpty(true)
+       : setEmpty(false)
        
    }
     
-    const addTimer = () =>{
+   const addTimer = () =>{
       
         SetOpen(!open)
         setState([...state,4])
         
-        console.log(state)
+        //console.log(state)
     }
-       if(empty && open){
+       if(!empty) {
         return (
            <Div>
                <h3>dodaj Timer</h3>
                <button onClick={exit}>{state}</button>
+               
                {state.map( (item,index) => {
-                
+               
               return <h5 key={index}>{item}</h5>
             })}
+            {open && <Window item={addTimer}/>} 
            </Div>
            
         )
        }
-        else if(empty){
-            return (
-                <Div>
-                <h1>Brak Timerów!!! Kliknij poniższy przycisk żeby dodać timer</h1>
-                <button onClick={addTimer}>Nowy Timer</button>
-            </Div>
-            )
-       }
+        
        else{
         return (
-            
-            <button onClick={addTimer}>Dodaj timer</button>
-           
-            
+            <Div>
+                <h1>Brak Timerów!!! Kliknij poniższy przycisk żeby dodać timer</h1>
+                <button onClick={addTimer}>Nowy Timer</button>
+                {open && <Window item={addTimer}/>} 
+            </Div>
         )
        }
     
