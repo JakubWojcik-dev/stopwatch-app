@@ -49,15 +49,33 @@ padding: 5px 7px;
 export const Button2 = styled.button`
 
 position: absolute;
-top: 70%;
+top: 79%;
 left: 43%;
 padding: 5px 7px;
 
 `
 export const DivFlex = styled.div`
 display: flex;
-margin-top: 40px;
+margin-top: 10px;
 justify-content: center;
 
 
+`
+export const Input = styled.input`
+cursor: pointer;
+pointer-events: none;
+width:50px;
+text-align: left;
+
+`
+export const Div = styled.div`
+width:50px;
+height: 170px;
+
+
+`
+export const Img = styled.img`
+
+height= 5px;
+width= 5px;
 `
