@@ -1,10 +1,10 @@
 import React, {useState,useEffect} from 'react'
-import { Input, NewTimer, HideDiv,ReleaseOnClick,MainDiv, Button } from './timer.styles'
+import SingleClock from '../TimerSingle'
 import { Div } from './timer.styles'
 import Window from '../TimerWindow'
 
 const Timer = () => {
-    const [name,setName] = useState('')
+    const [name,setName] = useState('tatata')
     const [empty,setEmpty] = useState(true)
     const [open,SetOpen] = useState(false)
     const [state, setState] = useState([])  
@@ -15,11 +15,11 @@ const Timer = () => {
         
         console.log(empty)
         console.log(open)
-        console.log(state.length)
+        console.log(state)
     }
    const exit = () => {
        SetOpen(!open)
-       if(state.length === 0)  {setEmpty(true)} else if(state.length > 0) {setEmpty(false)}
+       state.length === 0  ? setEmpty(true) : setEmpty(false)
        
        
    }
@@ -27,7 +27,7 @@ const Timer = () => {
    const addTimer = () =>{
       
         SetOpen(!open)
-        setState([...state,4])
+        setState([...state,[name,14]])
         
         //console.log(state)
     }
@@ -37,10 +37,10 @@ const Timer = () => {
            <Div>
                <h3>dodaj Timer</h3>
                <button onClick={addTimer}>{state}</button>
-               
+               {open && <Window item={exit} addNew={stateClock}/>}
                {state.map( (item,index) => {
                
-              return <h5 key={index}>{item}</h5>
+              return <SingleClock>test</SingleClock>
             })}
             
            </Div>

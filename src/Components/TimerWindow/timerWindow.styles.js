@@ -64,7 +64,7 @@ justify-content: center;
 export const Input = styled.input`
 cursor: pointer;
 pointer-events: none;
-width:50px;
+width:40px;
 text-align: left;
 
 `
