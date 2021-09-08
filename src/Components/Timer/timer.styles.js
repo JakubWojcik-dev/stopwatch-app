@@ -9,6 +9,17 @@ color: red;
 
 export const Div = styled.div`
 text-align: center;
+justify-content: center;
+
+.corner{
+    
+    position: fixed;
+    right: 5px;
+    bottom: 15px;
+    //width: 10vw;
+    //height: 5vh;
+    font-size: calc(2px + 1vmax);
+}
 
 `
 
@@ -62,4 +73,17 @@ top: 10px;
 right: 10px;
 padding: 5px 7px;
 
+`
+export const Grid = styled.div`
+
+place-items: center;
+width: 35%;
+margin-left:auto;
+margin-right: auto;
+display: grid; 
+  //grid-auto-flow: row dense; 
+  grid-template-columns: 1fr 1fr ; 
+  grid-template-rows: auto; 
+  gap: 100px 100px; 
+ 
 `

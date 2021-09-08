@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import SingleClock from '../TimerSingle'
-import { Div } from './timer.styles'
+import { Div, Grid } from './timer.styles'
 import Window from '../TimerWindow'
 
 const Timer = () => {
@@ -35,14 +35,17 @@ const Timer = () => {
        if(!empty) {
         return (
            <Div>
-               <h3>dodaj Timer</h3>
-               <button onClick={addTimer}>{state}</button>
-               {open && <Window item={exit} addNew={stateClock}/>}
-               {state.map( (item,index) => {
+              <h3>test</h3>
                
+               <button className="corner" onClick={addTimer}>dodaj Timer</button>
+               
+               {open && <Window item={exit} addNew={stateClock}/>}
+               
+            <Grid>
+               {state.map( (item,index) => {
               return <SingleClock>test</SingleClock>
             })}
-            
+            </Grid>
            </Div>
            
         )
