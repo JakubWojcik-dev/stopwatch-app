@@ -35,7 +35,7 @@ const Timer = () => {
        if(!empty) {
         return (
            <Div>
-              <h3>test</h3>
+              
                
                <button className="corner" onClick={addTimer}>dodaj Timer</button>
                

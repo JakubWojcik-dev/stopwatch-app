@@ -10,7 +10,7 @@ color: red;
 export const Div = styled.div`
 text-align: center;
 justify-content: center;
-
+padding-top: 2vmax;
 .corner{
     
     position: fixed;
@@ -19,6 +19,7 @@ justify-content: center;
     //width: 10vw;
     //height: 5vh;
     font-size: calc(2px + 1vmax);
+    
 }
 
 `
@@ -84,6 +85,12 @@ display: grid;
   //grid-auto-flow: row dense; 
   grid-template-columns: 1fr 1fr ; 
   grid-template-rows: auto; 
-  gap: 100px 100px; 
+  gap: 100px 100px;
+   
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr ;
+    gap: 50px;
+  }
  
 `
