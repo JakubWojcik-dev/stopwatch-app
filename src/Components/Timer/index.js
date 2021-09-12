@@ -2,7 +2,7 @@ import React, {useState,useEffect} from 'react'
 import SingleClock from '../TimerSingle'
 import { Div, Grid } from './timer.styles'
 import Window from '../TimerWindow'
-
+import {sec,mins,hours} from'../TimerWindow/index'
 const Timer = () => {
     const [name,setName] = useState('tatata')
     const [empty,setEmpty] = useState(true)
@@ -11,11 +11,9 @@ const Timer = () => {
 
     const stateClock = () => {
         SetOpen(!open)
-        console.log('test')
-        
-        console.log(empty)
-        console.log(open)
-        console.log(state)
+        setState([...state,[name,14]])
+        state.length === '0'  ? setEmpty(true) : setEmpty(false)
+    
     }
    const exit = () => {
        SetOpen(!open)
@@ -27,7 +25,7 @@ const Timer = () => {
    const addTimer = () =>{
       
         SetOpen(!open)
-        setState([...state,[name,14]])
+        //setState([...state,[name,14]])
         
         //console.log(state)
     }
@@ -43,7 +41,7 @@ const Timer = () => {
                
             <Grid>
                {state.map( (item,index) => {
-              return <SingleClock>test</SingleClock>
+              return <SingleClock second={sec} hour={hours} min={mins}>test</SingleClock>
             })}
             </Grid>
            </Div>
@@ -64,3 +62,4 @@ const Timer = () => {
 }
 
 export default Timer
+

@@ -6,7 +6,7 @@ import ArrowUp from '../../double-arrow-top.svg'
 const Window = ({item, addNew}) =>{
 
     const [hours, setHours] = useState(0)
-    const [min, setMin] = useState(0)
+    const [mins, setMin] = useState(0)
     const [sec, setSec] = useState(0)
     
     const addHour = () => {
@@ -28,20 +28,20 @@ const Window = ({item, addNew}) =>{
     }
 
     const addMin = () => {
-        if(min > 59){
+        if(mins > 59){
             setMin(0)
         }else{ 
-            setMin(min + 1)
+            setMin(mins + 1)
         }
        
         
     }
     const rmvMin = () => {
        
-        if(min < 1){
+        if(mins < 1){
             setMin(60)
         }else{
-            setMin(min - 1)
+            setMin(mins - 1)
         }
     }
 
@@ -85,7 +85,7 @@ const Window = ({item, addNew}) =>{
 
             <Div >
             <img src={ArrowUp} onClick={addMin} height='30' width='30'/>
-           <Input type='number' placeholder={min === 0 ? 'min' : min} name='min'/>
+           <Input type='number' placeholder={mins === 0 ? 'min' : mins} name='min'/>
             <img src={ArrowDown} onClick={rmvMin} height='30' width='30' />
             </Div>
 
@@ -109,3 +109,4 @@ const Window = ({item, addNew}) =>{
 
 }
 export default Window
+export  const {min,hours,sec}
