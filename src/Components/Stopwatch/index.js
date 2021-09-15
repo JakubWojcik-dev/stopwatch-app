@@ -21,14 +21,14 @@ const Stopwatch = () => {
     const stop = () => {
         setActive(false)
         setControl(true)
-        changeValue()
+        //changeValue()
         clearInterval(timer)
        
     }
 
     const run = () => {
         setControl(false)
-        changeValue()
+        //changeValue()
         
         setTimer(setInterval(changeValue, 10))
         

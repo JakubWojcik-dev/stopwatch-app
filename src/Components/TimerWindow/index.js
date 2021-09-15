@@ -3,66 +3,11 @@ import { HideDiv, MainDiv, ReleaseOnClick,Button1,Button2,DivFlex,Input,Div, } f
 import ArrowDown from '../../double-arrow-bottom.svg'
 import ArrowUp from '../../double-arrow-top.svg'
 
-const Window = ({item, addNew}) =>{
+const Window = ({item, addNew,rmvMin,rmvHour,rmvSec,addHour,addMin,addSec,mins,hours,sec,edit,id}) =>{
 
-    const [hours, setHours] = useState(0)
-    const [mins, setMin] = useState(0)
-    const [sec, setSec] = useState(0)
     
-    const addHour = () => {
-        if(hours > 23){
-            setHours(0)
-        }else{ 
-            setHours(hours + 1)
-        }
-       
-        
-    }
-    const rmvHour = () => {
-       
-        if(hours < 1){
-            setHours(24)
-        }else{
-            setHours(hours - 1)
-        }
-    }
-
-    const addMin = () => {
-        if(mins > 59){
-            setMin(0)
-        }else{ 
-            setMin(mins + 1)
-        }
-       
-        
-    }
-    const rmvMin = () => {
-       
-        if(mins < 1){
-            setMin(60)
-        }else{
-            setMin(mins - 1)
-        }
-    }
-
-    const addSec = () => {
-        if(sec > 59){
-            setSec(0)
-        }else{ 
-            setSec(sec + 1)
-        }
-       
-        
-    }
-
-    const rmvSec = () => {
-       
-        if(sec < 1){
-            setSec(60)
-        }else{
-            setSec(sec - 1)
-        }
-    }
+   
+    
 
     const AddTimerOnStage = () =>{
 
@@ -100,7 +45,7 @@ const Window = ({item, addNew}) =>{
         
         </DivFlex>
         <Button1 onClick={item}>CLOSE</Button1>
-        <Button2 onClick={addNew}>ADD</Button2>
+        <Button2 onClick={()=>addNew(id)}>{edit ? 'SAVE' : 'ADD'}</Button2>
         
     </MainDiv>
     </HideDiv>        
@@ -109,4 +54,3 @@ const Window = ({item, addNew}) =>{
 
 }
 export default Window
-export  const {min,hours,sec}

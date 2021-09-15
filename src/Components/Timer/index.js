@@ -5,22 +5,25 @@ import Window from '../TimerWindow'
 const Timer = () => {
     const [name,setName] = useState('tatata')
     const [empty,setEmpty] = useState(true)
-    const [open,SetOpen] = useState(false)
+    const [open,setOpen] = useState(false)
     const [state, setState] = useState([])
-    
+
+    const [editing, setEditing] = useState(false)
     const [hours, setHours] = useState(0)
     const [mins, setMin] = useState(0)
     const [sec, setSec] = useState(0)
+    const [idItem, setIdItem] = useState('')
+    const [timer,setTimer] = useState()
 
     const stateClock = () => {
-        SetOpen(!open)
-        const NewTimer = { id: new Date().getTime().toString(), title: name,s:sec, h: hours,m: mins };
+        setOpen(!open)
+        const NewTimer = { id: new Date().getTime().toString(), title: name, s:sec, h: hours, m: mins };
         setState([...state,NewTimer])
         state.length === '0'  ? setEmpty(true) : setEmpty(false)
-       
+        
     }
    const exit = () => {
-       SetOpen(!open)
+       setOpen(!open)
        state.length === 0  ? setEmpty(true) : setEmpty(false)
        
        
@@ -28,7 +31,7 @@ const Timer = () => {
     
    const addTimer = () =>{
    
-        SetOpen(!open)
+        setOpen(!open)
         setHours(0)
         setMin(0)
         setSec(0)
@@ -98,6 +101,52 @@ const Timer = () => {
         setState(state.filter((item) => item.id !== id));
         
     }
+
+    const editTimer= (id) => {
+        const specificItem = state.find((item) => item.id === id)
+        setOpen(true)
+        setEditing(true)
+        console.log(id)
+        setIdItem(id)
+        console.log(specificItem)
+        setHours(specificItem.h)
+        setMin(specificItem.m)
+        setSec(specificItem.s)
+        
+        console.log(idItem)
+      };
+      
+      const saveChanges = (id) => {
+        const specificItem = state.find((item) => item.id === id)
+        setOpen(false)
+        setEditing(false)
+        specificItem.s = sec
+        specificItem.m = mins
+        specificItem.h = hours
+    
+      }
+
+      const countDown = (id) => {
+        const specificItem = state.find((item) => item.id === id)
+        //console.log(specificItem)
+        //setIdItem(id)
+       
+        setTimer(setInterval(() => {
+           console.log('lil')
+          // changeValue(id)
+           specificItem.s = specificItem.s + 1 
+        }, 1000))
+      }
+
+      const changeValue = (id) => {
+        const specificItem = state.find((item) => item.id === id)
+        let mili = {sec: specificItem.s, min: specificItem.m, hours: specificItem.h}
+        console.log(specificItem.s)
+        console.log(mili)
+        setMin(mins + 1)
+        specificItem.s = mins 
+        
+      }
     
 
        if(!empty) {
@@ -107,15 +156,15 @@ const Timer = () => {
                
                <button className="corner" onClick={addTimer}>dodaj Timer</button>
                
-               {open && <Window item={exit} addNew={stateClock} addHour={addHour}
+               {open && <Window item={exit} addNew={ editing ? saveChanges : stateClock } id={idItem} addHour={addHour}
                 addMin={addMin} addSec={addSec} rmvHour={rmvHour} rmvMin={rmvMin} rmvSec={rmvSec}
-                mins={mins} hours={hours} sec={sec}/>} 
-               
+                mins={mins} hours={hours} sec={sec} edit={editing} />} 
             <Grid>
                {state.map( (item) => {
                    const { id } = item
                    
               return <SingleClock key={item.id} id={id} min={item.m} hour={item.h} second={item.s} deleteTimer={deleteTimer} 
+              editTimer={editTimer} startCount={countDown}
              ></SingleClock>
             })}
             </Grid>
@@ -129,7 +178,7 @@ const Timer = () => {
             <Div>
                 <h1>Brak Timerów!!! Kliknij poniższy przycisk żeby dodać timer</h1>
                 <button onClick={addTimer}>Nowy Timer</button>
-                {open && <Window item={exit} addNew={stateClock} addHour={addHour}
+                {open && <Window item={exit} addNew={ editing ?  saveChanges : stateClock }  id={idItem} addHour={addHour}
                 addMin={addMin} addSec={addSec} rmvHour={rmvHour} rmvMin={rmvMin} rmvSec={rmvSec}
                 mins={mins} hours={hours} sec={sec}/>} 
             </Div>
