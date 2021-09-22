@@ -14,7 +14,7 @@ const Timer = () => {
     const [sec, setSec] = useState(0)
     const [idItem, setIdItem] = useState('')
     const [timer,setTimer] = useState()
-
+    const [test,setTest] = useState(false)
     const stateClock = () => {
         setOpen(!open)
         const NewTimer = { id: new Date().getTime().toString(), title: name, s:sec, h: hours, m: mins };
@@ -127,25 +127,29 @@ const Timer = () => {
       }
 
       const countDown = (id) => {
-        const specificItem = state.find((item) => item.id === id)
+        //const specificItem = state.find((item) => item.id === id)
         //console.log(specificItem)
         //setIdItem(id)
        
         setTimer(setInterval(() => {
-           console.log('lil')
+           //console.log('lil')
           // changeValue(id)
-           specificItem.s = specificItem.s + 1 
+          // specificItem.s = specificItem.s + 1 
+           changeValue(id)
         }, 1000))
       }
 
       const changeValue = (id) => {
         const specificItem = state.find((item) => item.id === id)
-        let mili = {sec: specificItem.s, min: specificItem.m, hours: specificItem.h}
-        console.log(specificItem.s)
-        console.log(mili)
-        setMin(mins + 1)
-        specificItem.s = mins 
+        console.log(specificItem)
+        specificItem.m = specificItem.m + 1
+        console.log(state)
+       
+        setTest(!test)
         
+        //specificItem.m = specificItem.m + 1
+        console.log(specificItem.m)
+       return setState(state)
       }
     
 
@@ -162,7 +166,7 @@ const Timer = () => {
             <Grid>
                {state.map( (item) => {
                    const { id } = item
-                   
+                   console.log(item)
               return <SingleClock key={item.id} id={id} min={item.m} hour={item.h} second={item.s} deleteTimer={deleteTimer} 
               editTimer={editTimer} startCount={countDown}
              ></SingleClock>
