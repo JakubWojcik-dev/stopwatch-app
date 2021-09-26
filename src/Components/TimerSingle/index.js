@@ -3,8 +3,9 @@ import { Div, Count, Flex,BtnContainer } from './TimerSingle.styles'
 export const SingleClock = ({startCount, deleteTimer,id , editTimer,min,second,hour}) =>{
 
     return (
-
+        
         <Div>
+            
             <h3>Name of timer</h3>
             <Flex>
            <Count>{hour < 10 ? '0' + hour : hour}</Count>:
@@ -16,6 +17,7 @@ export const SingleClock = ({startCount, deleteTimer,id , editTimer,min,second,h
            <button onClick={() => editTimer(id)} >Edit</button>
            <button onClick={()=> startCount(id)} >Start</button>
            </BtnContainer>
+           
         </Div>
 
     )

@@ -55,7 +55,7 @@ const Stopwatch = () => {
         
         return setTime({ms: mili, s: sec, m: min, h: hours})
     }
-   
+   console.log('tete')
     return (
        
             <Center>
@@ -66,9 +66,9 @@ const Stopwatch = () => {
                     <p> {(time.m >= 10) ? time.m : '0' + time.m}<sub>min</sub></p>
                     <p> {(time.s >= 10) ? time.s : '0' + time.s}<sub>sec</sub></p>
                     <p> {(time.ms >= 10) ? time.ms : '0' + time.ms}<sub>mili</sub></p>   
-
+        
                 </Div>
-
+                
                     {(control)?
                     <button onClick={run}>Start</button>
                 :

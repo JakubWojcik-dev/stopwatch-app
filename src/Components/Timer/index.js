@@ -127,10 +127,7 @@ const Timer = () => {
       }
 
       const countDown = (id) => {
-        //const specificItem = state.find((item) => item.id === id)
-        //console.log(specificItem)
-        //setIdItem(id)
-       
+        
         setTimer(setInterval(() => {
            //console.log('lil')
           // changeValue(id)
@@ -140,23 +137,38 @@ const Timer = () => {
       }
 
       const changeValue = (id) => {
-        const specificItem = state.find((item) => item.id === id)
+        let specificItem = state.find((item) => item.id === id)
         console.log(specificItem)
-        specificItem.m = specificItem.m + 1
-        console.log(state)
+        console.log(id)
        
-        setTest(!test)
+        if( specificItem.m === 0 && specificItem.h > 0)
+        {
+            specificItem.h--
+            specificItem.m = 60
+           
+        }
+        if(specificItem.s === 0 && specificItem.m > 0)
+        {
+            specificItem.m--
+            specificItem.s = 60
+        }
+        if(specificItem.s === 0 && specificItem.m === 0 && specificItem.h === 0)
+        {
+            return
+        }
+       
+        specificItem.s--
         
-        //specificItem.m = specificItem.m + 1
-        console.log(specificItem.m)
-       return setState(state)
+        
+        console.log(specificItem.s)
+       
       }
     
 
        if(!empty) {
         return (
            <Div>
-              
+              {test ? console.log("work") : console.log("nie work")}
                
                <button className="corner" onClick={addTimer}>dodaj Timer</button>
                
@@ -166,7 +178,7 @@ const Timer = () => {
             <Grid>
                {state.map( (item) => {
                    const { id } = item
-                   console.log(item)
+                   console.log("PODAJ TTATAT TYLKO TAK")
               return <SingleClock key={item.id} id={id} min={item.m} hour={item.h} second={item.s} deleteTimer={deleteTimer} 
               editTimer={editTimer} startCount={countDown}
              ></SingleClock>
