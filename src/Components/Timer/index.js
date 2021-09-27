@@ -2,7 +2,9 @@ import React, {useState,useEffect} from 'react'
 import SingleClock from '../TimerSingle'
 import { Div, Grid } from './timer.styles'
 import Window from '../TimerWindow'
+
 const Timer = () => {
+
     const [name,setName] = useState('tatata')
     const [empty,setEmpty] = useState(true)
     const [open,setOpen] = useState(false)
@@ -15,6 +17,7 @@ const Timer = () => {
     const [idItem, setIdItem] = useState('')
     const [timer,setTimer] = useState()
     const [test,setTest] = useState(false)
+
     const stateClock = () => {
         setOpen(!open)
         const NewTimer = { id: new Date().getTime().toString(), title: name, s:sec, h: hours, m: mins };
@@ -129,9 +132,7 @@ const Timer = () => {
       const countDown = (id) => {
         
         setTimer(setInterval(() => {
-           //console.log('lil')
-          // changeValue(id)
-          // specificItem.s = specificItem.s + 1 
+          
            changeValue(id)
         }, 1000))
       }
@@ -139,7 +140,6 @@ const Timer = () => {
       const changeValue = (id) => {
         let specificItem = state.find((item) => item.id === id)
         console.log(specificItem)
-        console.log(id)
        
         if( specificItem.m === 0 && specificItem.h > 0)
         {
@@ -154,16 +154,17 @@ const Timer = () => {
         }
         if(specificItem.s === 0 && specificItem.m === 0 && specificItem.h === 0)
         {
-            return
+            
+            clearInterval(timer)
+            return 0
         }
        
         specificItem.s--
+        console.log(state)
+        setTest(new Date())
         
-        
-        console.log(specificItem.s)
-       
       }
-    
+     
 
        if(!empty) {
         return (

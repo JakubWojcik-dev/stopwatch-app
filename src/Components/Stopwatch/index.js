@@ -1,5 +1,5 @@
-import React, {useState,useEffect} from 'react'
-import { Center, Div } from '../Stopwatch/stopwatch.styles'
+import React, {useState,} from 'react'
+import { Center, Div, Flex,Button } from '../Stopwatch/stopwatch.styles'
 
 
 const Stopwatch = () => {
@@ -52,7 +52,7 @@ const Stopwatch = () => {
             mili = 0
         }
         mili++
-        
+        console.log('tete')
         return setTime({ms: mili, s: sec, m: min, h: hours})
     }
    console.log('tete')
@@ -61,20 +61,20 @@ const Stopwatch = () => {
             <Center>
                 <h1>Stopwatch</h1>
                 <Div> 
-
-                    <p> {(time.h >= 10) ? time.h : '0' + time.h}<sub>hours</sub></p>
-                    <p> {(time.m >= 10) ? time.m : '0' + time.m}<sub>min</sub></p>
-                    <p> {(time.s >= 10) ? time.s : '0' + time.s}<sub>sec</sub></p>
-                    <p> {(time.ms >= 10) ? time.ms : '0' + time.ms}<sub>mili</sub></p>   
-        
+                    <Flex>
+                        <div><p> {(time.h >= 10) ? time.h : '0' + time.h}</p><h3>hour</h3></div>
+                        <div><p> {(time.m >= 10) ? time.m : '0' + time.m}</p><h3>min</h3></div>
+                        <div><p> {(time.s >= 10) ? time.s : '0' + time.s}</p><h3>sec</h3></div>
+                        <div><p> {(time.ms >= 10) ? time.ms : '0' + time.ms}</p><h3>mili</h3></div> 
+                    </Flex>
                 </Div>
                 
                     {(control)?
-                    <button onClick={run}>Start</button>
+                    <Button onClick={run}>Start</Button>
                 :
                 <div>
-                    <button onClick={clear}>Restart</button>
-                    <button onClick={stop}>Stop</button>
+                    <Button onClick={clear}>Restart</Button>
+                    <Button onClick={stop}>Stop</Button>
                    
                 </div>
                 }
