@@ -5,7 +5,7 @@ import Window from '../TimerWindow'
 
 const Timer = () => {
 
-    const [name,setName] = useState('tatata')
+    const [name,setName] = useState('')
     const [empty,setEmpty] = useState(true)
     const [open,setOpen] = useState(false)
     const [state, setState] = useState([])
@@ -20,7 +20,7 @@ const Timer = () => {
 
     const stateClock = () => {
         setOpen(!open)
-        const NewTimer = { id: new Date().getTime().toString(), title: name, s:sec, h: hours, m: mins };
+        const NewTimer = { id: new Date().getTime().toString(), title: name, s:sec, h: hours, m: mins, isActive: false };
         setState([...state,NewTimer])
         state.length === '0'  ? setEmpty(true) : setEmpty(false)
         
@@ -33,12 +33,12 @@ const Timer = () => {
    }
     
    const addTimer = () =>{
-   
+    
         setOpen(!open)
         setHours(0)
         setMin(0)
         setSec(0)
-        
+        setName('')
         console.log(state)
     }
 
@@ -130,17 +130,25 @@ const Timer = () => {
       }
 
       const countDown = (id) => {
-        
-        setTimer(setInterval(() => {
-          
-           changeValue(id)
-        }, 1000))
+        const specificItem = state.find((item) => item.id === id)
+        setTest(!test)
+        console.log(test)
+        if(test){
+            
+            setTimer(setInterval(() => {
+              
+               changeValue(id)
+            }, 1000))
+        }else{
+            clearInterval(timer)
+        }
+      
       }
 
       const changeValue = (id) => {
-        let specificItem = state.find((item) => item.id === id)
+        const specificItem = state.find((item) => item.id === id)
         console.log(specificItem)
-       
+      
         if( specificItem.m === 0 && specificItem.h > 0)
         {
             specificItem.h--
@@ -169,18 +177,18 @@ const Timer = () => {
        if(!empty) {
         return (
            <Div>
-              {test ? console.log("work") : console.log("nie work")}
+              
                
                <button className="corner" onClick={addTimer}>dodaj Timer</button>
                
-               {open && <Window item={exit} addNew={ editing ? saveChanges : stateClock } id={idItem} addHour={addHour}
+               {open && <Window item={exit} addNew={ editing ? saveChanges : stateClock } name={name} id={idItem} addHour={addHour}
                 addMin={addMin} addSec={addSec} rmvHour={rmvHour} rmvMin={rmvMin} rmvSec={rmvSec}
                 mins={mins} hours={hours} sec={sec} edit={editing} />} 
             <Grid>
                {state.map( (item) => {
-                   const { id } = item
-                   console.log("PODAJ TTATAT TYLKO TAK")
-              return <SingleClock key={item.id} id={id} min={item.m} hour={item.h} second={item.s} deleteTimer={deleteTimer} 
+                   const { id,isActive } = item
+                   console.log(item.name)
+              return <SingleClock key={item.id} name={item.name} id={id} min={item.m} hour={item.h} second={item.s} isActive={test} deleteTimer={deleteTimer} 
               editTimer={editTimer} startCount={countDown}
              ></SingleClock>
             })}
@@ -195,7 +203,7 @@ const Timer = () => {
             <Div>
                 <h1>Brak Timerów!!! Kliknij poniższy przycisk żeby dodać timer</h1>
                 <button onClick={addTimer}>Nowy Timer</button>
-                {open && <Window item={exit} addNew={ editing ?  saveChanges : stateClock }  id={idItem} addHour={addHour}
+                {open && <Window item={exit} addNew={ editing ?  saveChanges : stateClock } name={name} id={idItem} addHour={addHour}
                 addMin={addMin} addSec={addSec} rmvHour={rmvHour} rmvMin={rmvMin} rmvSec={rmvSec}
                 mins={mins} hours={hours} sec={sec}/>} 
             </Div>

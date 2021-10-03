@@ -3,7 +3,7 @@ import { HideDiv, MainDiv, ReleaseOnClick,Button1,Button2,DivFlex,Input,Div, } f
 import ArrowDown from '../../double-arrow-bottom.svg'
 import ArrowUp from '../../double-arrow-top.svg'
 
-const Window = ({item, addNew,rmvMin,rmvHour,rmvSec,addHour,addMin,addSec,mins,hours,sec,edit,id}) =>{
+const Window = ({item,name, addNew,rmvMin,rmvHour,rmvSec,addHour,addMin,addSec,mins,hours,sec,edit,id}) =>{
 
     
    
@@ -19,6 +19,7 @@ const Window = ({item, addNew,rmvMin,rmvHour,rmvSec,addHour,addMin,addSec,mins,h
     <HideDiv>
        <ReleaseOnClick onClick={item}/> 
     <MainDiv>
+        <input type="text" placeholder="enter name here">{name}</input>
        <DivFlex>
            
            

@@ -19,11 +19,11 @@ align-items: center;
 width: 250px;
 height: 60px;
 font-size: 2.5em;
-color: red;
+color: white;
 `
 export const Count = styled.div`
 
-background-color:#008080;
+background-color: #006F80;
 width: 60px;
 height: 60px;
 
