@@ -5,21 +5,12 @@ import ArrowUp from '../../double-arrow-top.svg'
 
 const Window = ({item,name, addNew,rmvMin,rmvHour,rmvSec,addHour,addMin,addSec,mins,hours,sec,edit,id}) =>{
 
-    
    
-    
-
-    const AddTimerOnStage = () =>{
-
-        return (
-            <h2>hello</h2>
-        )
-    }
     return(
     <HideDiv>
        <ReleaseOnClick onClick={item}/> 
     <MainDiv>
-        <input type="text" placeholder="enter name here">{name}</input>
+        <input type="text" placeholder="enter nereame here" value={name}/>
        <DivFlex>
            
            

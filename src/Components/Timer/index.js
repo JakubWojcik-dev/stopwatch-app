@@ -20,7 +20,7 @@ const Timer = () => {
 
     const stateClock = () => {
         setOpen(!open)
-        const NewTimer = { id: new Date().getTime().toString(), title: name, s:sec, h: hours, m: mins, isActive: false };
+        const NewTimer = { id: new Date().getTime().toString(), title: name, s:sec, h: hours, m: mins };
         setState([...state,NewTimer])
         state.length === '0'  ? setEmpty(true) : setEmpty(false)
         
@@ -130,18 +130,15 @@ const Timer = () => {
       }
 
       const countDown = (id) => {
-        const specificItem = state.find((item) => item.id === id)
+    
         setTest(!test)
         console.log(test)
-        if(test){
-            
+       
             setTimer(setInterval(() => {
               
                changeValue(id)
             }, 1000))
-        }else{
-            clearInterval(timer)
-        }
+       
       
       }
 
@@ -181,14 +178,14 @@ const Timer = () => {
                
                <button className="corner" onClick={addTimer}>dodaj Timer</button>
                
-               {open && <Window item={exit} addNew={ editing ? saveChanges : stateClock } name={name} id={idItem} addHour={addHour}
+               {open && <Window item={exit} addNew={ editing ? saveChanges : stateClock } id={idItem} name={name} addHour={addHour}
                 addMin={addMin} addSec={addSec} rmvHour={rmvHour} rmvMin={rmvMin} rmvSec={rmvSec}
                 mins={mins} hours={hours} sec={sec} edit={editing} />} 
             <Grid>
                {state.map( (item) => {
-                   const { id,isActive } = item
+                   const {id}  = item
                    console.log(item.name)
-              return <SingleClock key={item.id} name={item.name} id={id} min={item.m} hour={item.h} second={item.s} isActive={test} deleteTimer={deleteTimer} 
+              return <SingleClock key={item.id} name={name} id={id} min={item.m} hour={item.h} second={item.s} isActive={item.isActive}  deleteTimer={deleteTimer} 
               editTimer={editTimer} startCount={countDown}
              ></SingleClock>
             })}
@@ -203,7 +200,7 @@ const Timer = () => {
             <Div>
                 <h1>Brak Timerów!!! Kliknij poniższy przycisk żeby dodać timer</h1>
                 <button onClick={addTimer}>Nowy Timer</button>
-                {open && <Window item={exit} addNew={ editing ?  saveChanges : stateClock } name={name} id={idItem} addHour={addHour}
+                {open && <Window item={exit} addNew={ editing ?  saveChanges : stateClock } name={name}  id={idItem} addHour={addHour}
                 addMin={addMin} addSec={addSec} rmvHour={rmvHour} rmvMin={rmvMin} rmvSec={rmvSec}
                 mins={mins} hours={hours} sec={sec}/>} 
             </Div>
