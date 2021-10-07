@@ -10,7 +10,7 @@ const Window = ({item,name, addNew,rmvMin,rmvHour,rmvSec,addHour,addMin,addSec,m
     <HideDiv>
        <ReleaseOnClick onClick={item}/> 
     <MainDiv>
-        <input type="text" placeholder="enter nereame here" value={name}/>
+        
        <DivFlex>
            
            

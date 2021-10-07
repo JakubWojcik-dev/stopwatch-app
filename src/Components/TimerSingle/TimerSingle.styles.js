@@ -14,6 +14,7 @@ border: 3px solid gray;
 `
 export const Flex = styled.div`
 display: flex;
+margin-top:20px;
 justify-content: space-around;
 align-items: center;
 width: 250px;
@@ -39,5 +40,46 @@ justify-content: space-around;
 width:250px;
 height:auto;
 text-align: center;
+margin-top: 20px;
+
+`
+export const Button = styled.button`
+
+    width: 70px;
+    height: 35px;
+    margin: 2px;
+  appearance: none;
+  
+  background-color: #006F80;
+  border-radius: 4px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+ 
+  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  
+  padding: 13px 20px;
+  
+  text-align: center;
+  text-decoration: none;
+ 
+  
+
+
+Button:hover {
+  background-color: #1e8449;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: .35s;
+}
+
+
 
 `
