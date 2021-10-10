@@ -1,5 +1,5 @@
-import React, {useState,} from 'react'
-import { Center, Div, Flex,Button } from '../Stopwatch/stopwatch.styles'
+import React, {useEffect, useState,} from 'react'
+import { Center, Div, Flex,Button,P, LeftSize } from '../Stopwatch/stopwatch.styles'
 
 
 const Stopwatch = () => {
@@ -7,6 +7,7 @@ const Stopwatch = () => {
     const [active,setActive] = useState(true)
     const [control,setControl] = useState(true)
     const [timer,setTimer] = useState()
+    const [array, setArray] =useState([])
     let mili = time.ms, sec = time.s, min = time.m, hours = time.h
 
     const clear = () => {
@@ -15,7 +16,7 @@ const Stopwatch = () => {
         changeValue()
         clearInterval(timer)
        setTime({ms:0,s:0,m:0,h:0})
-       
+       setArray([])
     }
 
     const stop = () => {
@@ -25,6 +26,14 @@ const Stopwatch = () => {
         clearInterval(timer)
        
     }
+
+    const save = () => {
+        const singleValue = {hour: time.h, min: time.m, sec: time.s, mil: time.ms}
+        setArray([...array,singleValue])
+        console.log(array)
+    }
+
+    
 
     const run = () => {
         setControl(false)
@@ -52,10 +61,10 @@ const Stopwatch = () => {
             mili = 0
         }
         mili++
-        console.log('tete')
+        
         return setTime({ms: mili, s: sec, m: min, h: hours})
     }
-   console.log('tete')
+   
     return (
        
             <Center>
@@ -75,10 +84,25 @@ const Stopwatch = () => {
                 <div>
                     <Button onClick={clear}>Restart</Button>
                     <Button onClick={stop}>Stop</Button>
-                   
-                </div>
+                    <Button onClick={save}>save</Button>
+                </div> 
+
                 }
+                <LeftSize>
+                {array.map( (item) => {
+                   
+                   
+                   return <h2 key={item.id}>
+                            
+                    Time:  {(item.hour >= 10) ?item.hour : '0' + item.hour}:
+                       {(item.min >= 10) ?item.min : '0' + item.min}:
+                       {(item.sec >= 10) ?item.sec : '0' + item.sec}:
+                       {(item.mil >= 10) ?item.mil : '0' + item.mil} 
+                       <hr></hr>
+                       </h2>
                     
+                })}
+                 </LeftSize>   
             </Center>
        
               

@@ -5,7 +5,9 @@ margin: auto;
 margin-top: 20px;
 width: 75%;
 text-align: center;
-height: 80vh;
+
+height:auto;
+min-height:80vh;
 background-color: #F8F8F8;
 border: 3px solid #A0A0A0;
 box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 
@@ -97,4 +99,26 @@ Button:hover {
 
 
 
+`
+export const P = styled.p`
+
+font-size: 10px;
+`
+export const LeftSize = styled.div`
+
+margin-top: 20px;
+text-align:left;
+width:75%;
+height:auto;
+
+h2{
+    margin: 25px 20px;
+    color: #006F80;
+    letter-spacing: 2px;
+}
+hr{
+    size= 10px; 
+    width=99%; 
+    color=#006F80;
+}
 `
