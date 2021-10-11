@@ -44,15 +44,32 @@ position: absolute;
 top: 10px;
 right: 10px;
 padding: 5px 7px;
+background-color: #006F80;
+color: white;
+border: 3px solid #117E91;
 
+&:hover{
+
+    border: 3px solid #228F91;
+    background-color: #117E91;  
+}
 `
 export const Button2 = styled.button`
 
 position: absolute;
 top: 79%;
-left: 43%;
+left: 36%;
 padding: 5px 7px;
+color: white;
+border: 3px solid #117E91;
+background-color: #006F80;
+width: 100px;
 
+&:hover{
+
+    border: 3px solid #228F91;
+    background-color: #117E91;  
+}
 `
 export const DivFlex = styled.div`
 display: flex;

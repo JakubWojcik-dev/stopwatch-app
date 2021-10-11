@@ -15,7 +15,7 @@ const Window = ({item,name, addNew,rmvMin,rmvHour,rmvSec,addHour,addMin,addSec,m
            
            
             <Div >
-            <img src={ArrowUp} onClick={addHour} height='30' width='30'/>
+            <img src={ArrowUp}  onClick={addHour} height='30' width='30'/>
            <Input type='number' placeholder={hours === 0 ? 'hours' : hours} name='hours'/>
             <img src={ArrowDown} onClick={rmvHour} height='30' width='30' />
             </Div>

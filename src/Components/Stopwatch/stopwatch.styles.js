@@ -90,8 +90,8 @@ export const Button = styled.button`
   
 
 
-Button:hover {
-  background-color: #1e8449;
+&:hover {
+  background-color: #228E91;
   opacity: 1;
   transform: translateY(0);
   transition-duration: .35s;

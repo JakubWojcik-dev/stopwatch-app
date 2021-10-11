@@ -18,7 +18,7 @@ padding-top: 2vmax;
     bottom: 15px;
     //width: 10vw;
     //height: 5vh;
-    font-size: calc(2px + 1vmax);
+    font-size: calc(4px + 1vmax);
     
 }
 
@@ -67,14 +67,7 @@ position: absolute;
     min-width: 300px;
 
 `
-export const Button = styled.button`
 
-position: absolute;
-top: 10px;
-right: 10px;
-padding: 5px 7px;
-
-`
 export const Grid = styled.div`
 
 place-items: center;
@@ -93,4 +86,39 @@ display: grid;
     gap: 50px;
   }
  
+`
+export const Button = styled.button`
+
+
+	border: 2px solid #117E91;
+	background-color: #006F80;
+	font-size: 16px;
+	height: 2.5em;
+	width: 2.5em;
+	border-radius: 999px;
+	position: relative;
+  margin-right: 10px;
+	cursor: pointer;
+	&:after,
+	&:before {
+		content: "";
+		display: block;
+		background-color: white;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	&:before {
+		height: 1em;
+		width: 0.2em;
+	}
+
+	&:after {
+		height: 0.2em;
+		width: 1em;
+	}
+}
+
 `

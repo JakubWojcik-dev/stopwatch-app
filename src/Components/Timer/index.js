@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import SingleClock from '../TimerSingle'
-import { Div, Grid } from './timer.styles'
+import { Div, Grid, Button } from './timer.styles'
 import Window from '../TimerWindow'
 
 const Timer = () => {
@@ -178,7 +178,7 @@ const Timer = () => {
            <Div>
               
                
-               <button className="corner" onClick={addTimer}>dodaj Timer</button>
+               <Button className="corner" onClick={addTimer}></Button>
                
                {open && <Window item={exit} addNew={ editing ? saveChanges : stateClock } id={idItem}  addHour={addHour}
                 addMin={addMin} addSec={addSec} rmvHour={rmvHour} rmvMin={rmvMin} rmvSec={rmvSec}
