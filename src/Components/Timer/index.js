@@ -167,7 +167,7 @@ const Timer = () => {
         }
        
         specificItem.s--
-        console.log(state)
+       
         setTest(new Date())
         
       }
