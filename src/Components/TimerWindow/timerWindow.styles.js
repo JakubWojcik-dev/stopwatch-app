@@ -83,7 +83,16 @@ cursor: pointer;
 pointer-events: none;
 width:40px;
 text-align: left;
-
+color: white;
+background-color:#006F80;
+border: 2px ridge #006F80;
+::placeholder,
+  ::-webkit-input-placeholder {
+    color: white;
+  }
+  :-ms-input-placeholder {
+     color: white;
+  }
 `
 export const Div = styled.div`
 width:50px;

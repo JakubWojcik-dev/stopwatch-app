@@ -200,8 +200,8 @@ const Timer = () => {
        else{
         return (
             <Div>
-                <h1>Brak Timerów!!! Kliknij poniższy przycisk żeby dodać timer</h1>
-                <button onClick={addTimer}>Nowy Timer</button>
+                <h1>Add Timer</h1>
+                <button onClick={addTimer}>New Timer</button>
                 {open && <Window item={exit} addNew={ editing ?  saveChanges : stateClock } id={idItem} addHour={addHour}
                 addMin={addMin} addSec={addSec} rmvHour={rmvHour} rmvMin={rmvMin} rmvSec={rmvSec}
                 mins={mins} hours={hours} sec={sec}/>} 
