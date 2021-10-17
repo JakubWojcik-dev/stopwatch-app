@@ -61,8 +61,8 @@ export const Button = styled.button`
   font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: normal;
-  line-height: 1.5;
+  letter-spacing:1px;
+  line-height: 0.75;
   outline: none;
   
   padding: 13px 20px;
@@ -80,6 +80,42 @@ Button:hover {
   transition-duration: .35s;
 }
 
+`
+export const SoloButton = styled.button`
+
+width: 100px;
+height: 35px;
+margin: 2px;
+margin-top: 20px;
+appearance: none;
+
+background-color: #006F80;
+border-radius: 4px;
+border-style: none;
+box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+box-sizing: border-box;
+color: #fff;
+cursor: pointer;
+
+font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+font-size: 18px;
+font-weight: 700;
+letter-spacing: 2px;
+line-height: 0.75;
+outline: none;
+
+padding: 13px 20px;
+
+text-align: center;
+text-decoration: none;
 
 
+
+
+Button:hover {
+background-color: #1e8449;
+opacity: 1;
+transform: translateY(0);
+transition-duration: .35s;
+}
 `

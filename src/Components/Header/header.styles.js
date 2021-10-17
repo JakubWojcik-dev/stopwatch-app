@@ -18,7 +18,7 @@ min-height: 50px;
 max-height: 100px;
 width: 100%;
 background-color: #E8E8E8;
-border-bottom: 3px solid gray;
+border-bottom: 4px solid rgba(0, 111, 128, 1);
 
 `;
 export const Image = styled.img`

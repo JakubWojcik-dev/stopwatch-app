@@ -21,7 +21,12 @@ padding-top: 2vmax;
     font-size: calc(4px + 1vmax);
     
 }
+h1{
+  letter-spacing: 2px;
+  font-familly
 
+  
+}
 `
 
 export const NewTimer = styled.div`
@@ -121,4 +126,41 @@ export const Button = styled.button`
 	}
 }
 
+`
+
+export const AddButton =styled.button`
+
+background-color: #006F80;
+  border-radius: 40px;
+  cursor: pointer;
+  box-sizing: border-box;
+  color: #eee;
+  
+  height: 50px;
+  font-size: 1.4em;
+  padding: 4px;
+  
+  text-decoration: none;
+  width: 7em;
+  z-index: 2;
+}
+
+&:hover {
+  color: white;
+  background-color:#008F90;
+}
+
+&:span {
+  align-items: center;
+  background: #0e0e10;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  transition: background 0.5s ease;
+  width: 100%;
+}
+
+&1:hover &:span {
+  background: transparent;
 `

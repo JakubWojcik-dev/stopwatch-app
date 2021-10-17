@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react'
 import SingleClock from '../TimerSingle'
-import { Div, Grid, Button } from './timer.styles'
+import { Div, Grid, Button, AddButton} from './timer.styles'
 import Window from '../TimerWindow'
 
 const Timer = () => {
@@ -21,7 +21,7 @@ const Timer = () => {
         setOpen(!open)
         
         
-        const NewTimer = { id: new Date().getTime().toString(), s:sec, h: hours, m: mins };
+        const NewTimer = { id: new Date().getTime().toString(), s:sec, h: hours, m: mins,isActive: false };
         setState([...state,NewTimer])
         console.log(state)
         state.length === '0'  ? setEmpty(true) : setEmpty(false)
@@ -104,7 +104,8 @@ const Timer = () => {
     const deleteTimer = (id) => {
 
         setState(state.filter((item) => item.id !== id));
-        
+        state.length === 1  ? setEmpty(true) : setEmpty(false)
+        console.log(state.length);
     }
 
     const editTimer= (id) => {
@@ -133,20 +134,26 @@ const Timer = () => {
 
       const countDown = (id) => {
     
+        const specificItem = state.find((item) => item.id === id)
         setTest(!test)
-        console.log(test)
-       
+        console.log(specificItem.isActive)
+        specificItem.isActive = !specificItem.isActive
+        console.log(specificItem.isActive)
+       if(specificItem.isActive)
+       {
             setTimer(setInterval(() => {
               
                changeValue(id)
             }, 1000))
-       
+        }else{
+            clearInterval(timer)
+        }
       
       }
 
       const changeValue = (id) => {
         const specificItem = state.find((item) => item.id === id)
-        console.log(specificItem)
+        
       
         if( specificItem.m === 0 && specificItem.h > 0)
         {
@@ -163,6 +170,8 @@ const Timer = () => {
         {
             
             clearInterval(timer)
+            specificItem.isActive = false
+            setTest(!test)
             return 0
         }
        
@@ -200,8 +209,8 @@ const Timer = () => {
        else{
         return (
             <Div>
-                <h1>Add Timer</h1>
-                <button onClick={addTimer}>New Timer</button>
+                <h1>Add your first timer</h1>
+                <AddButton onClick={addTimer}>New Timer</AddButton>
                 {open && <Window item={exit} addNew={ editing ?  saveChanges : stateClock } id={idItem} addHour={addHour}
                 addMin={addMin} addSec={addSec} rmvHour={rmvHour} rmvMin={rmvMin} rmvSec={rmvSec}
                 mins={mins} hours={hours} sec={sec}/>} 

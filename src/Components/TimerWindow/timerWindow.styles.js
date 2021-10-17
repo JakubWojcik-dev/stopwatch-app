@@ -82,10 +82,12 @@ export const Input = styled.input`
 cursor: pointer;
 pointer-events: none;
 width:40px;
-text-align: left;
+text-align: right;
 color: white;
 background-color:#006F80;
 border: 2px ridge #006F80;
+ 
+
 ::placeholder,
   ::-webkit-input-placeholder {
     color: white;
@@ -98,10 +100,10 @@ export const Div = styled.div`
 width:50px;
 height: 170px;
 
-
+position: wrap;
 `
 export const Img = styled.img`
-
+position: wrap;
 height= 5px;
 width= 5px;
 `
