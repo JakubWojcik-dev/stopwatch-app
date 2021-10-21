@@ -4,10 +4,11 @@ import { Center, Div, Flex,Button,P, LeftSize } from '../Stopwatch/stopwatch.sty
 
 const Stopwatch = () => {
     const [time, setTime] = useState({ms:0,s:0,m:0,h:0})
-    const [active,setActive] = useState(true)
+    const [count,setCount] = useState(1)
     const [control,setControl] = useState(true)
     const [timer,setTimer] = useState()
     const [array, setArray] =useState([])
+    
     let mili = time.ms, sec = time.s, min = time.m, hours = time.h
 
     const clear = () => {
@@ -17,10 +18,11 @@ const Stopwatch = () => {
         clearInterval(timer)
        setTime({ms:0,s:0,m:0,h:0})
        setArray([])
+       setCount(1)
     }
 
     const stop = () => {
-        setActive(false)
+        
         setControl(true)
         //changeValue()
         clearInterval(timer)
@@ -28,9 +30,9 @@ const Stopwatch = () => {
     }
 
     const save = () => {
-        const singleValue = {hour: time.h, min: time.m, sec: time.s, mil: time.ms}
+        const singleValue = {hour: time.h, min: time.m, sec: time.s, mil: time.ms,number: count}
         setArray([...array,singleValue])
-        console.log(array)
+       setCount(count+1)
     }
 
     
@@ -94,7 +96,7 @@ const Stopwatch = () => {
                    
                    return <h2 key={item.id}>
                             
-                    Time:  {(item.hour >= 10) ?item.hour : '0' + item.hour}:
+                    Time {item.number}:  {(item.hour >= 10) ?item.hour : '0' + item.hour}:
                        {(item.min >= 10) ?item.min : '0' + item.min}:
                        {(item.sec >= 10) ?item.sec : '0' + item.sec}:
                        {(item.mil >= 10) ?item.mil : '0' + item.mil} 

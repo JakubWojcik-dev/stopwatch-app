@@ -11,6 +11,7 @@ export const Div = styled.div`
 text-align: center;
 justify-content: center;
 padding-top: 2vmax;
+background-color:  #212121;
 .corner{
     
     position: fixed;
@@ -29,12 +30,7 @@ h1{
 }
 `
 
-export const NewTimer = styled.div`
 
-with: 50%;
-height:200px;
-background-color: red;
-`
 
 export const HideDiv = styled.div`
 
