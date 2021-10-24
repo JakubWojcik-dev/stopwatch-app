@@ -73,19 +73,20 @@ width: 100px;
 `
 export const DivFlex = styled.div`
 display: flex;
-margin-top: 10px;
 justify-content: center;
 
-
 `
-export const Input = styled.input`
+export const Input = styled.div`
 cursor: pointer;
 pointer-events: none;
-width:40px;
-text-align: right;
+width:45px;
+height: 45px;
+text-align: center;
+letter-spacing:1px;
 color: white;
 background-color:#006F80;
-border: 2px ridge #006F80;
+border-radius: 3px;
+margin-bottom: 10px;
  
 
 ::placeholder,
@@ -100,10 +101,8 @@ export const Div = styled.div`
 width:50px;
 height: 170px;
 
+img{
+    cursor: pointer;
+}
 position: wrap;
-`
-export const Img = styled.img`
-position: wrap;
-height= 5px;
-width= 5px;
 `

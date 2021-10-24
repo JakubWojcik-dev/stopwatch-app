@@ -1,5 +1,5 @@
 import React from 'react'
-import { Div, Count, Flex,BtnContainer,Button, SoloButton } from './TimerSingle.styles'
+import { Div, Count, Flex,BtnContainer,Button, SoloButton} from './TimerSingle.styles'
 export const SingleClock = ({startCount, deleteTimer,id ,isActive, editTimer,min,second,hour}) =>{
 
     return (
@@ -21,9 +21,10 @@ export const SingleClock = ({startCount, deleteTimer,id ,isActive, editTimer,min
            <Button onClick={() => editTimer(id)} >Edit</Button>
            <Button onClick={()=> startCount(id)} >Start</Button>
            </BtnContainer>
+           
            }
           
-           
+          
            
         </Div>
 

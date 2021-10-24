@@ -11,7 +11,7 @@ export const Div = styled.div`
 text-align: center;
 justify-content: center;
 padding-top: 2vmax;
-background-color:  #212121;
+
 .corner{
     
     position: fixed;
@@ -20,7 +20,12 @@ background-color:  #212121;
     //width: 10vw;
     //height: 5vh;
     font-size: calc(4px + 1vmax);
-    
+    &:hover {
+      right: 7px;
+    bottom: 16px;
+      font-size: calc(6px + 1vmax);
+      opacity: 0.9;
+    } 
 }
 h1{
   letter-spacing: 2px;

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route,Switch } from 'react-router-dom'
 import Stopwatch from '../Stopwatch'
 import Nav from '../Nav'
 import  Timer  from '../Timer'
+import Alarm from '../Alarm'
 const Header = () => {
 
     return (
@@ -17,7 +18,7 @@ const Header = () => {
          
       <Switch>
       <Route path='/' exact component="none"/>
-       <Route path='/alarm' component={Nav}/>
+       <Route path='/alarm' component={Alarm}/>
        <Route path='/timer' component={Timer}/> 
        <Route path='/Stopwatch' component={Stopwatch}/>
        </Switch>

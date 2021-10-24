@@ -74,11 +74,12 @@ export const Button = styled.button`
   
 
 
-Button:hover {
-  background-color: #1e8449;
-  opacity: 1;
+  &:hover {
+  
+  opacity: 0.9;
   transform: translateY(0);
   transition-duration: .35s;
+  
 }
 
 `
@@ -102,7 +103,7 @@ font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif
 font-size: 18px;
 font-weight: 700;
 letter-spacing: 2px;
-line-height: 0.75;
+line-height: 0.5;
 outline: none;
 
 padding: 13px 20px;
@@ -113,10 +114,11 @@ text-decoration: none;
 
 
 
-Button:hover {
-background-color: #1e8449;
-opacity: 1;
-transform: translateY(0);
-transition-duration: .35s;
-}
+&:hover {
+  
+  opacity: 0.9;
+  transform: translateY(0);
+  transition-duration: .35s;
+  }
 `
+
