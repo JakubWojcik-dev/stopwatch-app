@@ -1,12 +1,18 @@
-import react from "react";
+import React from "react";
 import { useState } from "react/cjs/react.development";
+import { Center } from "./alarm.styles";
+import SingleAlarm from "../AlarmSingle";
 
 const Alarm = () => {
 
-    const [state, setState] = useState({})
+    const [playing, setPlaying] = useState(false)
 return(
 
-    <div>test</div>
+   <Center>
+       <h1>Alarm</h1>
+       <SingleAlarm/>
+       
+   </Center>
 )
 
 }

@@ -57,7 +57,7 @@ const Timer = () => {
     const rmvHour = () => {
        
         if(hours < 1){
-            setHours(24)
+            setHours(23)
         }else{
             setHours(hours - 1)
         }
@@ -76,7 +76,7 @@ const Timer = () => {
     const rmvMin = () => {
        
         if(mins < 1){
-            setMin(60)
+            setMin(59)
         }else{
             setMin(mins - 1)
         }
@@ -95,7 +95,7 @@ const Timer = () => {
     const rmvSec = () => {
        
         if(sec < 1){
-            setSec(60)
+            setSec(59)
         }else{
             setSec(sec - 1)
         }
@@ -195,7 +195,7 @@ const Timer = () => {
             <Grid>
                {state.map( (item) => {
                    const {id}  = item
-                   
+                  // const key =   new Date().getTime().toString()
               return <SingleClock key={item.id}  id={id} min={item.m} hour={item.h} second={item.s} isActive={item.isActive}  deleteTimer={deleteTimer} 
               editTimer={editTimer} startCount={countDown}
              ></SingleClock>
