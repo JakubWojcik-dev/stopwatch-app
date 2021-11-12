@@ -2,63 +2,48 @@ import styled from "styled-components";
 
 export const Center = styled.div`
 height: 100px;
-width:90%;
-border: 2px solid #006F80;
+width:50%;
+border: 4px solid #006F80;
 border-radius: 35px;
-background-color: #e0fbff;
+
 color: #006F80;
 text-align:center;
 margin-left: 40px;
 `
-export const Switch = styled.div`
+export const Switch = styled.button`
 
 
-    
-  display: block;
-  position: relative;
-  padding-left: $toggle-width;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  user-select: none;
 
-  input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
+
+	display: flex;
+	width: 100px;
+	height: 50px;
+	border: 6px solid;
+	border-radius: 99em;
+	position: relative;
+	transition: transform .75s ease-in-out;
+	transform-origin: 50% 50%;
+	cursor: pointer;
+	
+  .clicked{
+    transform: translateX(45px);
+    background-color: #red;
   }
-
-  input:checked ~ .control {
-    background-color: $toggle-background-color-on;
-    
-    &:after {
-      left: $toggle-width - $toggle-control-size - $toggle-gutter;
-    }
+  &:after {
+    transform: translateX(45px);
+    background-color: #FFF;
   }
-
-  &:control {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: $toggle-height;
-    width: $toggle-width;
-    border-radius: $toggle-radius;
-    background-color: $toggle-background-color-off;
-    transition: background-color $toggle-control-speed $toggle-control-ease;
-
-    &:after {
-      content: "";
-      position: absolute;
-      left: $toggle-gutter;
-      top: $toggle-gutter;
-      width: $toggle-control-size;
-      height: $toggle-control-size;
-      border-radius: $toggle-radius;
-      background: $toggle-control-color;
-      transition: left $toggle-control-speed $toggle-control-ease;
-    }
-  }
-}
+	&:before {
+		transition: transform .75s ease;
+		transition-delay: .5s;
+		content: "";
+		display: block;
+		position: absolute;
+		width: 36px;
+		height: 36px;
+		background-color: #000;
+		border-radius: 50%;
+		//top: 6px;
+		//left: 6px;
+	}
 `

@@ -1,4 +1,4 @@
-import React from "react";
+import react from "react";
 import { useState } from "react/cjs/react.development";
 import { Center } from "./alarm.styles";
 import SingleAlarm from "../AlarmSingle";
