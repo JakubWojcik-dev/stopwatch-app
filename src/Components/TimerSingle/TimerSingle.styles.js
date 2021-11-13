@@ -2,12 +2,11 @@ import styled from "styled-components";
 
 export const Div = styled.div`
 
-//width: 15vmax;
-//height: 15vmax;
+
 width: 250px;
 height: 250px;
 //background-color: #f1f1f1;
-background-color: #F8F0E3;
+background-color: #E8E8E8;
 border-radius: 20px;
 border: 3px solid gray;
 

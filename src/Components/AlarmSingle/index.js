@@ -1,12 +1,17 @@
-import react from "react";
-import { Center, Switch } from "./AlarmSingle.styles";
+import {react, useState} from "react";
+import { Center, InputWrapper, Span, Switch } from "./AlarmSingle.styles";
 
-const SingleAlarm = () =>{
+const SingleAlarm = ({hour,min}) =>{
 
-
+    const [isChecked, setIsChecked] = useState(false)
     return(
-        <Center>tete
-            <Switch/>
+        <Center >
+            <p>12:00{hour} {min}</p>
+            <InputWrapper>
+                <Switch type="checkbox" onChange = {(e) => setIsChecked(e.target.checked)}/>
+            <Span/>
+            </InputWrapper>
+              
         </Center>
     )
 }
