@@ -23,7 +23,7 @@ const Alarm = () => {
     const addItem = () => {
         const NewAlarm = { id: new Date().getTime().toString(),hour: hour,min: min};
         setData([...data,NewAlarm])
-        
+        console.log(data);
     
 
     }
@@ -78,7 +78,7 @@ return(
       
        {data.map( (item) => {
                   
-                 return <SingleAlarm key={item.id}></SingleAlarm>
+                 return <SingleAlarm key={item.id} hour={item.hour} min={item.min}></SingleAlarm>
              
             })}
             

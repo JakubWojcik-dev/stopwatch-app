@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
 export const Center = styled.div`
-height: 100px;
-width:50%;
-min-width: 300px;
+height: 400px;
+width:400px;
 border: 4px solid #006F80;
-border-radius: 35px;
+border-radius: 200px;
 display: flex;
 color: #006F80;
 
@@ -15,8 +14,23 @@ margin-left: 40px;
 p{
 	font-size: 50px;
 	font-weight: 900;
-	letter-spacing: 2px;
+	letter-spacing: 3px;
 	margin-left:10px;
+}
+
+h5{
+	font-size: 16px;
+	font-weight: 700;
+	line-height:0;
+}
+h6{
+	font-size: 12px;
+	margin-bot: 300px;
+	line-height:0;
+}
+div{
+	margin-bottom: 0px;
+	height:30px;
 }
 `
 export const Switch = styled.input`
