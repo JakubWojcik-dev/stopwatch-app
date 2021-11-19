@@ -1,6 +1,6 @@
 import React,{createContext, useEffect, useReducer} from "react";
 import { useState } from "react/cjs/react.development";
-import { Center,Button } from "./alarm.styles";
+import { Center,Button, Grid } from "./alarm.styles";
 import SingleAlarm from "../AlarmSingle";
 import AlarmWindow from "../AlarmWindow";
 import { render } from "@testing-library/react";
@@ -75,12 +75,13 @@ return(
        
       <Button className="corner" onClick={(checkIsOpen)}></Button>
 
-      
+      <Grid>
        {data.map( (item) => {
                   
                  return <SingleAlarm key={item.id} hour={item.hour} min={item.min}></SingleAlarm>
              
             })}
+            </Grid>
             
         {open && <AlarmWindow  item={checkIsOpen} addItem={addItem} hours={hour} mins={min} addHour={addHour} addMin={addMin}/> }    
    </Center>

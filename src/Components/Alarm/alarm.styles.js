@@ -79,7 +79,25 @@ export const Button = styled.button`
 `
 
 /////////////////////////////////////////////////
+export const Grid = styled.div`
 
+place-items: center;
+//width: 30%;
+margin-left:auto;
+margin-right: auto;
+display: grid; 
+  //grid-auto-flow: row dense; 
+  grid-template-columns: 1fr 1fr ; 
+  grid-template-rows: auto; 
+  gap: 80px 80px;
+   
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr ;
+    gap: 40px;
+  }
+ 
+`
 
 
 
