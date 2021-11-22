@@ -13,7 +13,7 @@ export const DivHeader = styled.div`
 display: flex;
 align-items: center;
 //justify-content: center;
-
+min-width: 500px;
 min-height: 50px; 
 max-height: 100px;
 width: 100%;

@@ -1,18 +1,23 @@
 import {react, useEffect, useState} from "react";
-import { Center, InputWrapper, Span, Switch } from "./AlarmSingle.styles";
+import { Center, InputWrapper, Span, Switch,Alert } from "./AlarmSingle.styles";
 
 const SingleAlarm = ({hour,min}) =>{
 
     const [isChecked, setIsChecked] = useState(false)
+    const [value, setValue] = useState(true)
+     const checkIsChecked = () => {
+           
+           setValue(!value)
 
-   
-        useEffect(() => {
+           if(value){
 
-            setTimeout(() => {
-                alert("dziala")
-            }, 3000);   
-            
-           }, []) 
+            setIsChecked(true)
+            const timeout = setTimeout(() => {
+                setIsChecked(false)
+            }, 3000);
+            return () => clearTimeout(timeout)}
+           
+        }
            
            
        
@@ -26,13 +31,15 @@ const SingleAlarm = ({hour,min}) =>{
             <h5>Alarm,</h5>
             <h6> Not repated</h6>
             </div>
-            <p><div>{hour > 10 ? hour : '0'+hour}</div>:<div>{min > 10? min : "0" + min}</div></p>
+            <p><div>{hour < 10 ?  '0'+hour : hour }</div>:<div>{min < 10 ? "0" + min : min }</div></p>
             
             <InputWrapper>
-                <Switch type="checkbox" onChange = {(e) =>useEffect}/>
+                <Switch type="checkbox" onChange= {checkIsChecked }/>
+                
             <Span/>
             </InputWrapper>
-              
+            {isChecked && <Alert/> } 
+            
         </Center>
     )
 }

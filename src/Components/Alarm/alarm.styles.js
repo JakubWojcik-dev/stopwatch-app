@@ -4,6 +4,7 @@ export const Center = styled.div`
 margin: auto;
 margin-top: 20px;
 width: 75%;
+min-width: 500px;
 text-align: center;
 .corner{
     

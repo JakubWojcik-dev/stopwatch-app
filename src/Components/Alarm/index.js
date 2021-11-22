@@ -24,6 +24,7 @@ const Alarm = () => {
         const NewAlarm = { id: new Date().getTime().toString(),hour: hour,min: min};
         setData([...data,NewAlarm])
         console.log(data);
+        setOpen(false);
     
 
     }

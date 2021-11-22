@@ -104,3 +104,14 @@ transition: background-color: 2s;
 
 `
 
+export const Alert = styled.div`
+
+position: fixed;
+width: 800px;
+height: 300px;
+
+background-color:#006F80;
+bottom: 30px;
+left: 27vmax;
+
+`
