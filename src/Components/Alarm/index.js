@@ -24,6 +24,7 @@ const Alarm = () => {
         const NewAlarm = { id: new Date().getTime().toString(),hour: hour,min: min};
         setData([...data,NewAlarm])
         console.log(data);
+        console.log(NewAlarm);
         setOpen(false);
     
 
@@ -42,7 +43,7 @@ const Alarm = () => {
 //    const [fruit,setFruit] = useLocalStorage('data')
 
     const addHour = () => {
-        if(hour > 23){
+        if(hour > 22){
             setHour(0)
         }else{ 
             setHour(hour+1)
@@ -50,10 +51,26 @@ const Alarm = () => {
     }
 
     const addMin = () => {
-        if(min > 59){
+        if(min > 58){
             setMin(0)
         }else{ 
             setMin(min+1)
+        }
+    }
+
+    const rmvHour = () => {
+        if(hour < 1){
+            setHour(23)
+        }else{ 
+            setHour(hour-1)
+        }
+    }
+
+    const rmvMin = () => {
+        if(min < 1){
+            setMin(59)
+        }else{ 
+            setMin(min-1)
         }
     }
     
@@ -84,7 +101,7 @@ return(
             })}
             </Grid>
             
-        {open && <AlarmWindow  item={checkIsOpen} addItem={addItem} hours={hour} mins={min} addHour={addHour} addMin={addMin}/> }    
+        {open && <AlarmWindow  item={checkIsOpen} addItem={addItem} hours={hour} mins={min} addHour={addHour} addMin={addMin} rmvHour={rmvHour} rmvMin={rmvMin}/> }    
    </Center>
 )
 

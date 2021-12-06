@@ -5,6 +5,9 @@ const SingleAlarm = ({hour,min}) =>{
 
     const [isChecked, setIsChecked] = useState(false)
     const [value, setValue] = useState(true)
+
+    //const actuallHour = new Date().getHours().toString()
+    const actuallMin = new Date().getMinutes().toString()
      const checkIsChecked = () => {
            
            setValue(!value)
@@ -18,7 +21,22 @@ const SingleAlarm = ({hour,min}) =>{
             return () => clearTimeout(timeout)}
            
         }
+     const hourTime = () => {
+
+        const actuallHour = new Date().getHours().toString()
+        
+        
            
+            const   returner = 24 + actuallHour - hour
+       
+
+
+       
+
+          
+        
+        return returner
+     }      
            
        
        
@@ -38,7 +56,7 @@ const SingleAlarm = ({hour,min}) =>{
                 
             <Span/>
             </InputWrapper>
-            {isChecked && <Alert/> } 
+            {isChecked && <Alert>Alarm ring in {hourTime}, {actuallMin-min}</Alert> } 
             
         </Center>
     )

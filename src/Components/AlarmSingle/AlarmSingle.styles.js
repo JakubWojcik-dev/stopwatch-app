@@ -45,7 +45,7 @@ h6{
 }
 div{
 	margin-bottom: 0px;
-	height:30px;
+	//height:30px;
 }
 `
 export const Switch = styled.input`
@@ -108,8 +108,9 @@ export const Alert = styled.div`
 
 position: fixed;
 width: 800px;
-height: 300px;
-
+height: 120px;
+text-size: 15px;
+color: white;
 background-color:#006F80;
 bottom: 30px;
 left: 27vmax;
