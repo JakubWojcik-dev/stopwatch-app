@@ -30,7 +30,11 @@ const Alarm = () => {
 
     }
    
-       
+    const showInfo = (id) => {
+
+        console.log(id)
+
+    }   
 
             
 //       function setLocal(newItem) {
@@ -95,8 +99,9 @@ return(
 
       <Grid>
        {data.map( (item) => {
+           const id = item
                   
-                 return <SingleAlarm key={item.id} hour={item.hour} min={item.min}></SingleAlarm>
+                 return <SingleAlarm  showInfo={showInfo} id={id} key={item.id} hour={item.hour} min={item.min}></SingleAlarm>
              
             })}
             </Grid>
