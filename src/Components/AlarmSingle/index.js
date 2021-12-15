@@ -6,8 +6,7 @@ const SingleAlarm = ({hour,min,showInfo, id}) =>{
     const [isChecked, setIsChecked] = useState(false)
     const [value, setValue] = useState(true)
 
-    const actuallHour = new Date().getHours().toString()
-    const actuallMin = new Date().getMinutes().toString()
+   
      const checkIsChecked = () => {
            
            setValue(!value)
@@ -17,34 +16,40 @@ const SingleAlarm = ({hour,min,showInfo, id}) =>{
             setIsChecked(true)
             const timeout = setTimeout(() => {
                 setIsChecked(false)
-            }, 3000);
+            }, 30000);
             return () => clearTimeout(timeout)}
            
         }
-     const hourTime = () => {
-
-        const actuallHour = new Date().getHours().toString()
-        
-        
-            const   returner = 24 + actuallHour - hour
-       
-            console.log(returner)
-
-       
-
           
-        
-        return console.log("tets");
-     }      
     
-     const minTime = () => {
+     const getTime = () => {
+        let actuallHour = new Date().getHours().toString()
+        let actuallMin = new Date().getMinutes().toString()
+        if(hour == 0)
+        hour = 24
 
-        const actuallMin = new Date().getMinutes().toString()
-        console.log('tetete')
-        return actuallMin
+
+        if(actuallHour < hour){
+            actuallHour = hour - actuallHour
+           
+        }else if(actuallHour > hour){
+            actuallHour = 24 - (actuallHour - hour)
+        }
+
+        if(actuallMin > min){
+            actuallMin = 60 - (actuallMin - min)
+            actuallHour = actuallHour - 1
+           
+        } else  if(actuallMin < min){
+            actuallMin = min - actuallMin
+            
+        }
+
+        
+        return {actuallHour, actuallMin}
      }      
        
-       
+    
        
     
     return(
@@ -61,7 +66,7 @@ const SingleAlarm = ({hour,min,showInfo, id}) =>{
                 
             <Span/>
             </InputWrapper>
-            {isChecked && <Alert>Alarm ring in {minTime}</Alert> } 
+            {isChecked && <Alert>Ring in {getTime().actuallHour} hours and {getTime().actuallMin} minutes </Alert> } 
             
         </Center>
     )

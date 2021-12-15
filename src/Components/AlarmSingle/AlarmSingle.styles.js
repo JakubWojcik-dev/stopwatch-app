@@ -106,13 +106,16 @@ transition: background-color: 2s;
 
 export const Alert = styled.div`
 
+padding: 3px 3px;
+border: 3px solid white;
 position: fixed;
 width: 800px;
 height: 120px;
 text-size: 15px;
-color: white;
+color:white;
 background-color:#006F80;
 bottom: 30px;
 left: 27vmax;
+text-align: center;
 
 `
