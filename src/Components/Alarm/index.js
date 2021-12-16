@@ -23,28 +23,23 @@ const Alarm = () => {
     const addItem = () => {
         const NewAlarm = { id: new Date().getTime().toString(),hour: hour,min: min};
         setData([...data,NewAlarm])
-        console.log(data);
-        console.log(NewAlarm);
         setOpen(false);
     
 
     }
-   
-    const showInfo = (id) => {
-
-        console.log(id)
-
-    }   
 
             
-//       function setLocal(newItem) {
-//           //localStorage.setItem(localItem, newItem)
-//           localStorage.setItem('data',JSON.stringify(data))
-//           setState(newItem)
-  //     }
-          
-   
-//    const [fruit,setFruit] = useLocalStorage('data')
+    const editTimer= (id) => {
+
+        const specificItem = data.find((item) => item.id === id)
+        console.log(specificItem);
+        setOpen(true)
+        
+      
+      //  setHour(specificItem.hour)
+        //setMin(specificItem.min)
+        
+      };
 
     const addHour = () => {
         if(hour > 22){
@@ -101,7 +96,7 @@ return(
        {data.map( (item) => {
            const id = item
                   
-                 return <SingleAlarm  showInfo={showInfo} id={id} key={item.id} hour={item.hour} min={item.min}></SingleAlarm>
+                 return <SingleAlarm editTimer={editTimer}  id={id} key={item.id} hour={item.hour} min={item.min}></SingleAlarm>
              
             })}
             </Grid>

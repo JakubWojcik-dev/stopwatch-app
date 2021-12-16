@@ -1,7 +1,7 @@
 import {react, useEffect, useState} from "react";
-import { Center, InputWrapper, Span, Switch,Alert } from "./AlarmSingle.styles";
+import { Center, InputWrapper, Span, Switch,Alert, Button } from "./AlarmSingle.styles";
 
-const SingleAlarm = ({hour,min,showInfo, id}) =>{
+const SingleAlarm = ({hour,min, id,editTimer}) =>{
 
     const [isChecked, setIsChecked] = useState(false)
     const [value, setValue] = useState(true)
@@ -16,7 +16,7 @@ const SingleAlarm = ({hour,min,showInfo, id}) =>{
             setIsChecked(true)
             const timeout = setTimeout(() => {
                 setIsChecked(false)
-            }, 30000);
+            }, 3000);
             return () => clearTimeout(timeout)}
            
         }
@@ -25,8 +25,10 @@ const SingleAlarm = ({hour,min,showInfo, id}) =>{
      const getTime = () => {
         let actuallHour = new Date().getHours().toString()
         let actuallMin = new Date().getMinutes().toString()
+
+       
         if(hour == 0)
-        hour = 24
+            hour = 24
 
 
         if(actuallHour < hour){
@@ -40,7 +42,7 @@ const SingleAlarm = ({hour,min,showInfo, id}) =>{
             actuallMin = 60 - (actuallMin - min)
             actuallHour = actuallHour - 1
            
-        } else  if(actuallMin < min){
+        } else  if(actuallMin <= min){
             actuallMin = min - actuallMin
             
         }
@@ -60,13 +62,14 @@ const SingleAlarm = ({hour,min,showInfo, id}) =>{
             <h6> Not repated</h6>
             </div>
             <p><div>{hour < 10 ?  '0'+hour : hour }</div>:<div>{min < 10 ? "0" + min : min }</div></p>
-            
+            <Button onClick={() => editTimer(id)} >Edit</Button>
             <InputWrapper>
-                <Switch type="checkbox" onChange= {checkIsChecked } onClick={() => showInfo(id)}/>
+                <Switch type="checkbox" onChange= {checkIsChecked } />
                 
             <Span/>
             </InputWrapper>
-            {isChecked && <Alert>Ring in {getTime().actuallHour} hours and {getTime().actuallMin} minutes </Alert> } 
+            {isChecked && <Alert>{ getTime().actuallMin != 0 ? `Ring in ${getTime().actuallHour} hours and ${getTime().actuallMin} minutes ` 
+            : `Ring in ${getTime().actuallHour} hours`}</Alert> } 
             
         </Center>
     )

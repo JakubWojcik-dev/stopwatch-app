@@ -110,12 +110,53 @@ padding: 3px 3px;
 border: 3px solid white;
 position: fixed;
 width: 800px;
-height: 120px;
-text-size: 15px;
+height: 80px;
+font-size: 30px;
+letter-spacing: 2px;
+
 color:white;
 background-color:#006F80;
 bottom: 30px;
 left: 27vmax;
 text-align: center;
+
+`
+export const Button = styled.button`
+
+    width: 70px;
+    height: 35px;
+    margin: 2px;
+  appearance: none;
+  
+  background-color: #006F80;
+  border-radius: 4px;
+  border-style: none;
+  box-shadow: rgba(39, 174, 96, .15) 0 4px 9px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+ 
+  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing:1px;
+  line-height: 0.75;
+  outline: none;
+  
+  padding: 13px 20px;
+  
+  text-align: center;
+  text-decoration: none;
+ 
+  
+
+
+  &:hover {
+  
+  opacity: 0.9;
+  transform: translateY(0);
+  transition-duration: .35s;
+  
+}
 
 `

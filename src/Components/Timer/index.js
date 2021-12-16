@@ -23,7 +23,7 @@ const Timer = () => {
         
         const NewTimer = { id: new Date().getTime().toString(), s:sec, h: hours, m: mins,isActive: false };
         setState([...state,NewTimer])
-        console.log(state)
+        
         state.length === '0'  ? setEmpty(true) : setEmpty(false)
         
     }
@@ -41,7 +41,7 @@ const Timer = () => {
         setMin(0)
         setSec(0)
         
-        console.log(state)
+    
     }
 
     const addHour = () => {
@@ -105,21 +105,19 @@ const Timer = () => {
 
         setState(state.filter((item) => item.id !== id));
         state.length === 1  ? setEmpty(true) : setEmpty(false)
-        console.log(state.length);
+        
     }
 
     const editTimer= (id) => {
         const specificItem = state.find((item) => item.id === id)
         setOpen(true)
         setEditing(true)
-        console.log(id)
         setIdItem(id)
-        console.log(specificItem)
+      
         setHours(specificItem.h)
         setMin(specificItem.m)
         setSec(specificItem.s)
         
-        console.log(idItem)
       };
       
       const saveChanges = (id) => {
@@ -136,9 +134,8 @@ const Timer = () => {
     
         const specificItem = state.find((item) => item.id === id)
         setTest(!test)
-        console.log(specificItem.isActive)
         specificItem.isActive = !specificItem.isActive
-        console.log(specificItem.isActive)
+        
        if(specificItem.isActive)
        {
             setTimer(setInterval(() => {
