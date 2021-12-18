@@ -5,7 +5,6 @@ export const Div = styled.div`
 
 width: 250px;
 height: 250px;
-//background-color: #f1f1f1;
 background-color: #E8E8E8;
 border-radius: 20px;
 border: 3px solid gray;

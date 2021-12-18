@@ -11,8 +11,6 @@ text-align: center;
     position: fixed;
     right: 5px;
     bottom: 15px;
-    //width: 10vw;
-    //height: 5vh;
     font-size: calc(4px + 1vmax);
     &:hover {
       right: 7px;
@@ -79,21 +77,19 @@ export const Button = styled.button`
 
 `
 
-/////////////////////////////////////////////////
+
 export const Grid = styled.div`
 
 place-items: center;
-//width: 30%;
 margin-left:auto;
 margin-right: auto;
 display: grid; 
-  //grid-auto-flow: row dense; 
-  grid-template-columns: 1fr 1fr ; 
-  grid-template-rows: auto; 
-  gap: 80px 80px;
+grid-template-columns: 1fr 1fr ; 
+grid-template-rows: auto; 
+gap: 80px 80px;
    
 
-  @media (max-width: 576px) {
+  @media (max-width: 1376px) {
     grid-template-columns: 1fr ;
     gap: 40px;
   }

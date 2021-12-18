@@ -5,30 +5,19 @@ height: 400px;
 width:400px;
 border: 4px solid #006F80;
 border-radius: 200px;
-//display: flex;
 color: #006F80;
 
 text-align: center;
 margin-left: 40px;
 
 p{
-	display: flex;
-	font-size: 64px;
+		
+	font-size: 54px;
 	font-weight: 900;
 	letter-spacing: 3px;
-	margin-left:87px;
-	tetxt-align: center;
-	
-	div{
-		width: 100px;
-		height: 100px;
-		border-radius: 10px;
-		background-color: #006F80;
-		color: #F8F8F8;
-		text-align: center;
-		
-	}
-}
+	margin-top: 10px;
+	text-align: center;
+}	
 
 h5{
 	margin-top: 50px;
@@ -44,8 +33,9 @@ h6{
 	
 }
 div{
-	margin-bottom: 0px;
-	//height:30px;
+display: flex;
+justify-content: center;
+	
 }
 `
 export const Switch = styled.input`
@@ -64,14 +54,33 @@ top: -999px;
 }
 
 `
+export const ClockDiv = styled.div`
 
+	width: 100px;
+	height: 100px;
+	border-radius: 10px;
+	background-color: #006F80;
+	color: #F8F8F8;
+	
+	p{
+		
+		font-size: 54px;
+		font-weight: 900;
+		letter-spacing: 3px;
+		margin-top: 10px;
+		text-align: center;
+	}	
+		
+		
+
+
+`
 export const InputWrapper = styled.label`
 
 position: relative;
 
-top: 0px;
 left: 150px;
-//left-min: 30vmin;
+bottom: -20px;
 
 `
 export const Span = styled.span`
@@ -96,7 +105,6 @@ transition: background-color: 2s;
 	border-radius: 45px;
 	transition: 0.4s;
 	background-color: #fff;
-	//box-shadow: 0 2px 4px 0 rgba(0,35,11,0.2);
 }
 &:active:before{
 	width: 35px;
@@ -123,11 +131,13 @@ text-align: center;
 `
 export const Button = styled.button`
 
-    width: 70px;
-    height: 35px;
+position: relative;
+bottom: 20px;
+    width: 140px;
+    height: 40px;
     margin: 2px;
   appearance: none;
-  
+ 
   background-color: #006F80;
   border-radius: 4px;
   border-style: none;
@@ -137,9 +147,9 @@ export const Button = styled.button`
   cursor: pointer;
  
   font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing:1px;
+  font-size: 24px;
+	font-weight: 800;
+	letter-spacing: 2px;
   line-height: 0.75;
   outline: none;
   

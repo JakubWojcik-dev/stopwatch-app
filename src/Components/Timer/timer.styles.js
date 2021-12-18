@@ -17,8 +17,6 @@ padding-top: 2vmax;
     position: fixed;
     right: 5px;
     bottom: 15px;
-    //width: 10vw;
-    //height: 5vh;
     font-size: calc(4px + 1vmax);
     &:hover {
       right: 7px;
@@ -81,13 +79,12 @@ width: 35%;
 margin-left:auto;
 margin-right: auto;
 display: grid; 
-  //grid-auto-flow: row dense; 
   grid-template-columns: 1fr 1fr ; 
   grid-template-rows: auto; 
   gap: 100px 100px;
    
 
-  @media (max-width: 576px) {
+  @media (max-width: 976px) {
     grid-template-columns: 1fr ;
     gap: 50px;
   }

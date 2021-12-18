@@ -24,7 +24,6 @@ const Stopwatch = () => {
     const stop = () => {
         
         setControl(true)
-        //changeValue()
         clearInterval(timer)
        
     }
@@ -39,8 +38,6 @@ const Stopwatch = () => {
 
     const run = () => {
         setControl(false)
-        //changeValue()
-        
         setTimer(setInterval(changeValue, 10))
         
     }

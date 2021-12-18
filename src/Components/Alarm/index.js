@@ -10,23 +10,34 @@ const Alarm = () => {
 
     const [playing, setPlaying] = useState(false)
     const [open, setOpen] = useState(false)
+    const [currentID, setCurrentId] = useState()
     const[data,setData] = useState([])
     const [hour, setHour] =useState(0)
     const [min, setMin] =useState(0)
+    const [isEditing, setIsEditing] = useState(false)
     const [local,setState] = useState(localStorage.getItem('data'))
     const checkIsOpen = () =>{
         setOpen(!open)
         console.log(open);
-    
+        setMin(0)
+        setHour(0)
     }
 
     const addItem = () => {
         const NewAlarm = { id: new Date().getTime().toString(),hour: hour,min: min};
         setData([...data,NewAlarm])
-        setOpen(false);
-    
+        setOpen(false)
 
     }
+    const saveChanges = (id) => {
+        const specificItem = data.find((item) => item.id === id)
+        setOpen(false)
+        setIsEditing(false)
+        
+        specificItem.min = min
+        specificItem.hour = hour
+    
+      }
 
             
     const editTimer= (id) => {
@@ -34,10 +45,11 @@ const Alarm = () => {
         const specificItem = data.find((item) => item.id === id)
         console.log(specificItem);
         setOpen(true)
-        
-      
-      //  setHour(specificItem.hour)
-        //setMin(specificItem.min)
+        setIsEditing(true)
+        setCurrentId(id)
+        setMin(specificItem.min)
+        setHour(specificItem.hour)
+        setHour(specificItem.hour)
         
       };
 
@@ -94,14 +106,14 @@ return(
 
       <Grid>
        {data.map( (item) => {
-           const id = item
+           const {id} = item
                   
                  return <SingleAlarm editTimer={editTimer}  id={id} key={item.id} hour={item.hour} min={item.min}></SingleAlarm>
              
             })}
             </Grid>
             
-        {open && <AlarmWindow  item={checkIsOpen} addItem={addItem} hours={hour} mins={min} addHour={addHour} addMin={addMin} rmvHour={rmvHour} rmvMin={rmvMin}/> }    
+        {open && <AlarmWindow  id={currentID} item={checkIsOpen} isEditing={isEditing} addItem={isEditing ? saveChanges : addItem} hours={hour} mins={min} addHour={addHour} addMin={addMin} rmvHour={rmvHour} rmvMin={rmvMin}/> }    
    </Center>
 )
 

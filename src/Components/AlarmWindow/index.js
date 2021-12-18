@@ -3,7 +3,7 @@ import { HideDiv, MainDiv, ReleaseOnClick,Button1,Button2,DivFlex,Input,Div, } f
 import ArrowDown from '../../double-arrow-bottom.svg'
 import ArrowUp from '../../double-arrow-top.svg'
 
-const AlarmWindow = ({item,addItem,mins,hours, addNew,rmvMin,rmvHour,addHour,addMin,}) =>{
+const AlarmWindow = ({item,addItem,mins,hours, addNew,rmvMin,rmvHour,addHour,addMin,isEditing,id}) =>{
 
     
     return(
@@ -33,7 +33,7 @@ const AlarmWindow = ({item,addItem,mins,hours, addNew,rmvMin,rmvHour,addHour,add
         
         </DivFlex>
         <Button1 onClick={item}>CLOSE</Button1>
-        <Button2 onClick={addItem}>ADD</Button2>
+        <Button2 onClick={() =>addItem(id)}>{isEditing ? "SAVE" : "ADD"}</Button2>
         
     </MainDiv>
     </HideDiv>        

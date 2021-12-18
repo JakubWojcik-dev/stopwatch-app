@@ -1,5 +1,5 @@
 import {react, useEffect, useState} from "react";
-import { Center, InputWrapper, Span, Switch,Alert, Button } from "./AlarmSingle.styles";
+import { Center, InputWrapper, Span, Switch,Alert, Button, ClockDiv } from "./AlarmSingle.styles";
 
 const SingleAlarm = ({hour,min, id,editTimer}) =>{
 
@@ -57,11 +57,11 @@ const SingleAlarm = ({hour,min, id,editTimer}) =>{
     return(
         <Center >
             
-            <div>
+            <header>
             <h5>Alarm,</h5>
             <h6> Not repated</h6>
-            </div>
-            <p><div>{hour < 10 ?  '0'+hour : hour }</div>:<div>{min < 10 ? "0" + min : min }</div></p>
+            </header>
+            <div><ClockDiv><p>{hour < 10 ?  '0'+hour : hour }</p></ClockDiv><p>:</p><ClockDiv><p>{min < 10 ? "0" + min : min }</p></ClockDiv></div>
             <Button onClick={() => editTimer(id)} >Edit</Button>
             <InputWrapper>
                 <Switch type="checkbox" onChange= {checkIsChecked } />

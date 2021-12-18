@@ -192,7 +192,7 @@ const Timer = () => {
             <Grid>
                {state.map( (item) => {
                    const {id}  = item
-                  // const key =   new Date().getTime().toString()
+
               return <SingleClock key={item.id}  id={id} min={item.m} hour={item.h} second={item.s} isActive={item.isActive}  deleteTimer={deleteTimer} 
               editTimer={editTimer} startCount={countDown}
              ></SingleClock>
